@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <title>Salmon Cookie</title>
+    </head>
+    <body background="img/backround.jpg" height="460" width="1000">
+        <header>
+            <section>
+                <img src="img/salmon.png" >
+                <nav>                    
+                    <ul id="nav">
+                        <li><a href="#aboutus" onclick="showAboutUs()">About Us</a></li>
+                        <li><a href="#location" onclick="showLocations()">Locations</a></li>
+                        <li><a href="#hours" onclick="showHours()">Hours</a></li>                        
+                        <li><a href="#specials" onclick="showSpecials()">Specials</a></li>
+                        <li><a href="#contactus" onclick="showContactUs()">Contact Us</a></li>
+                    </ul>                    
+                </nav>
+               
+            </section>
+        </header>
+
+        <main>
+                <article id="aboutus" class="toggle" style="display:block">
+                    <h1></h1>
+                        <h2>A golden biscuit with the richness of pure, creamery butter, that melts in your mouth leaving a whisper of Salmon.</h2>
+                        <h2>Ingredients:</h2>
+                            <h3>
+                                <ul>
+                                    <li>Wheat flour, butter, sugar, ground almonds, glucose syrup, whey, salt, sodium acid pyrophosphate, sodium bicarbonate, ground hazelnuts, wheat starch, Ground Salmon</li>
+                                    <li>Contains wheat, almonds, hazelnuts milk and eggs.</li>
+                                    <li>May contain coconut, walnuts, peanuts and soy.</li>                                                      
+                                </ul>
+                            </h3>
+
+                            <h2>Nutritional Facts:</h2>
+                            <h2> Serving size 3</h2>
+                            <h3>
+                                <ul>
+                                    <li>Calories 150            -> Calories from Fat 63</li>
+                                    <li>Total Fat 7g            -> 11% </li>
+                                    <li>Saturated Fat 4g        -> 20% </li>
+                                    <li>Trans Fat 0g            -> 0% </li>
+                                    <li>Cholesterol 15mg        -> 5% </li>                    
+                                    <li>Sodium 35mg             -> 1% </li> 
+                                    <li>Total Carbohydrate 20g  -> 7% </li> 
+                                    <li>Dietary Fiber 1g        -> 4% </li> 
+                                    <li>Protein 2g              -> 4% </li> 
+                                </ul>
+                            </h3>
+                    </article> 
+                    <article id="location" class="toggle" style="display:none">
+                            <h1>Our Store Locations</h1>
+                            <h2>1st and Pike</h2>
+                            <h3>
+                                <ul>
+                                    <li>2500 1st Ave</li>
+                                    <li>Pike Street</li>
+                                    <li>Seattle</li>
+                                    <li>Washinton</li>
+                                    <li>98101</li>                    
+                                </ul>
+                            </h3>
+                            <h2>SeaTac Airport</h2>
+                            <h3>
+                                <ul>
+                                    <li>Store # 356</li>
+                                    <li>Gate 15</li>
+                                    <li>SeaTac Airport</li>
+                                    <li>Washinton</li>
+                                    <li>98114</li>                    
+                                </ul>
+                            </h3>
+                            <h2>Seattle Center</h2>
+                            <h3>
+                                <ul>
+                                    <li>1200</li>
+                                    <li>Pacific Place Mall</li>
+                                    <li>Seattle</li>
+                                    <li>Washinton</li>
+                                    <li>98102</li>                    
+                                </ul>
+                            </h3>
+                            <h2>Capitol Hill</h2>
+                            <h3>
+                                <ul>
+                                    <li>2560</li>
+                                    <li>AlderWood Mall</li>
+                                    <li>Capitol Hill</li>
+                                    <li>Washinton</li>
+                                    <li>98014</li>                    
+                                </ul>
+                            </h3>
+                            <h2>Alki</h2>
+                            <h3>
+                                <ul>
+                                    <li>333</li>
+                                    <li>Pine Ave</li>
+                                    <li>Alki</li>
+                                    <li>Washinton</li>
+                                    <li>98105</li>                    
+                                </ul>
+                            </h3>
+                    </article>
+                    <article id="hours" class="toggle" style="display:none">
+                            <h2>Hours:</h2>            
+                            <h3>
+                                <ul>
+                                    <li>M-F : 6AM - 8PM</li>
+                                    <li>Saturday: 6AM - 8PM</li>
+                                    <li>Sunday: 6AM - 8PM</li>                                    
+                                </ul>
+                            </h3>     
+                    </article>
+                    <article id="specials" class="toggle" style="display:none">
+                            <h2>Specials:</h2>
+                            <h3>
+                                    <ul>
+                                            <li>Salmon Cookie Rewards</li>
+                                            <li>Start Earning the rewards on all qualifying purchases...</li>
+                                            <li>Sign up for rewards program.</li>                                    
+                                        </ul>
+                                </h3> 
+
+                                <h2>Christmas Offers:</h2>
+                                <h3>
+                                        <ul>
+                                                <li>Online Order above 100$</li>
+                                                <li>Get 10$ Gift voucher</li>
+                                                <li>Offer starts from December 1st until 31st December</li>                                    
+                                            </ul>
+                                </h3> 
+                             
+                    </article>
+                    <article id="contactus" class="toggle" style="display:none">
+                                <h3>
+                                        <article class="container">
+                                                <article style="text-align:center">
+                                                  <h2>Contact Us</h2><br/> <br/>
+                                                </article>
+                                                  <p>Leave us a message:</p>
+                                                
+                                                <article class="row">
+                                                  <article class="column">
+                                                      <label for="fname">Name</label>
+                                                      <input type="text" id="fname" name="fulltname" placeholder="Your name..">
+                                                      <label for="email">Email</label>
+                                                      <input type="text" id="email" name="email" placeholder="Your email..">
+                                                      <label for="phone">Phone</label>
+                                                      <input type="text" id="phone" name="phone" placeholder="Your phone..">
+                                                      <label for="comment">Comments</label>
+                                                      <textarea id="comment" name="comment" placeholder="Write something.." style="height:170px"></textarea>
+                                                      <input type="submit" value="Submit">     
+                                                  </article>
+                                                </article>
+                                              </article>
+                                </h3>
+                    </article>
+        </main>
+        <script src="js/app.js"></script>
+
+        <footer> &copy; Salmon Cookies</footer>
+    </body>
+</html>
