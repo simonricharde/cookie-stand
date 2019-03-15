@@ -126,3 +126,14 @@ input[type=text], select, textarea {
     font-size: small;
     margin-bottom: 10px;
 }
+
+thead {
+  background: #888;
+  color: white;
+}
+
+td {
+  padding: 20px;
+  border: solid 1px black;
+  color: white;
+}
