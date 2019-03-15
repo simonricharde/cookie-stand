@@ -39,162 +39,136 @@ function showAboutUs() {
     document.getElementById('contactus').style.display = "block";
  }
 
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+ var hours = ['6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM'];
 var pikeCookieListId = 'hourlycookie-list-pike';
 var seaTacCookieListId = 'hourlycookie-list-seatac';
 var seattleCenterCookieListId = 'hourlycookie-list-seattle-center';
 var capitolHillCookieListId = 'hourlycookie-list-capitol-hill';
 var alkiCookieListId = 'hourlycookie-list-alki';
+var locations = [];
+var headerData = [];
 
-var pike = {    
-    hourlyCookiesList : [],
-    totalCookiesCount : 0,
-    minimumHourlyCustomer: 23,
-    maximumHourlyCustomer: 65,
-    averageCookiesPerCustomer: 6.3,  
-    customersPerHour: function () {        
-        var min = Math.ceil(pike.minimumHourlyCustomer);
-        var max = Math.floor(pike.maximumHourlyCustomer);
+
+var tableHeaderId = document.getElementById('headerHours');
+var tableBodyId = document.getElementById('cookieContents');
+
+function SalesProjector(locationName, minimumHourlyCustomer, maximumHourlyCustomer, averageCookiesPerCustomer) {
+    this.locationName = locationName;
+    this.minimumHourlyCustomer = minimumHourlyCustomer;
+    this.maximumHourlyCustomer = maximumHourlyCustomer;
+    this.averageCookiesPerCustomer = averageCookiesPerCustomer;    
+  }
+
+  SalesProjector.prototype.customersPerHour = function () {
+        var min = Math.ceil(this.minimumHourlyCustomer);
+        var max = Math.floor(this.maximumHourlyCustomer);        
         return Math.floor(Math.random() * (max - min)) + min;
-    },
-    cookiesList: function () {        
+  };
+
+  SalesProjector.prototype.cookiesList = function () {
+    var hourlyCookiesList = [];
     for (var i = 0; i < hours.length; i++) {    
-    var hourlyCookie = Math.floor(pike.customersPerHour() * pike.averageCookiesPerCustomer);    
-    pike.hourlyCookiesList.push(hourlyCookie);
-    }    
-    return pike.hourlyCookiesList;       
-        
-    },
-    totalCookiesPerDay: function () {           
-        return getTotalCount(pike.cookiesList());
-    }    
-};
+        var hourlyCookie = Math.floor(this.customersPerHour() * this.averageCookiesPerCustomer);    
+        hourlyCookiesList.push(hourlyCookie);
+        }    
+        return hourlyCookiesList;      
+  };
 
-var seaTac = {    
-    hourlyCookiesList : [],
-    totalCookiesCount : 0,
-    minimumHourlyCustomer: 3,
-    maximumHourlyCustomer: 24,
-    averageCookiesPerCustomer: 1.2,  
-    customersPerHour: function () {        
-        var min = Math.ceil(seaTac.minimumHourlyCustomer);
-        var max = Math.floor(seaTac.maximumHourlyCustomer);
-        return Math.floor(Math.random() * (max - min)) + min;
-    },
-    cookiesList: function () {        
-    for (var i = 0; i < hours.length; i++) {    
-    var hourlyCookie = Math.floor(seaTac.customersPerHour() * seaTac.averageCookiesPerCustomer);    
-    seaTac.hourlyCookiesList.push(hourlyCookie);
-    }    
-    return seaTac.hourlyCookiesList;       
-        
-    },
-    totalCookiesPerDay: function () {           
-        return getTotalCount(seaTac.cookiesList());
-    }    
-};
-
-var seattleCenter = {    
-    hourlyCookiesList : [],
-    totalCookiesCount : 0,
-    minimumHourlyCustomer: 11,
-    maximumHourlyCustomer: 38,
-    averageCookiesPerCustomer: 3.7,  
-    customersPerHour: function () {        
-        var min = Math.ceil(seattleCenter.minimumHourlyCustomer);
-        var max = Math.floor(seattleCenter.maximumHourlyCustomer);
-        return Math.floor(Math.random() * (max - min)) + min;
-    },
-    cookiesList: function () {        
-    for (var i = 0; i < hours.length; i++) {    
-    var hourlyCookie = Math.floor(seattleCenter.customersPerHour() * seattleCenter.averageCookiesPerCustomer);    
-    seattleCenter.hourlyCookiesList.push(hourlyCookie);
-    }    
-    return seattleCenter.hourlyCookiesList;       
-        
-    },
-    totalCookiesPerDay: function () {           
-        return getTotalCount(seattleCenter.cookiesList());
-    }    
-};
-
-var capitolHill = {    
-    hourlyCookiesList : [],
-    totalCookiesCount : 0,
-    minimumHourlyCustomer: 20,
-    maximumHourlyCustomer: 38,
-    averageCookiesPerCustomer: 2.3,   
-    customersPerHour: function () {        
-        var min = Math.ceil(capitolHill.minimumHourlyCustomer);
-        var max = Math.floor(capitolHill.maximumHourlyCustomer);
-        return Math.floor(Math.random() * (max - min)) + min;
-    },
-    cookiesList: function () {        
-    for (var i = 0; i < hours.length; i++) {    
-    var hourlyCookie = Math.floor(capitolHill.customersPerHour() * capitolHill.averageCookiesPerCustomer);    
-    capitolHill.hourlyCookiesList.push(hourlyCookie);
-    }    
-    return capitolHill.hourlyCookiesList;       
-        
-    },
-    totalCookiesPerDay: function () {           
-        return getTotalCount(capitolHill.cookiesList());
-    }    
-};
-
-var alki = {    
-    hourlyCookiesList : [],
-    totalCookiesCount : 0,
-    minimumHourlyCustomer: 2,
-    maximumHourlyCustomer: 16,
-    averageCookiesPerCustomer: 4.6,  
-    customersPerHour: function () {        
-        var min = Math.ceil(alki.minimumHourlyCustomer);
-        var max = Math.floor(alki.maximumHourlyCustomer);
-        return Math.floor(Math.random() * (max - min)) + min;
-    },
-    cookiesList: function () {        
-    for (var i = 0; i < hours.length; i++) {    
-    var hourlyCookie = Math.floor(alki.customersPerHour() * alki.averageCookiesPerCustomer);    
-    alki.hourlyCookiesList.push(hourlyCookie);
-    }    
-    return alki.hourlyCookiesList;       
-        
-    },
-    totalCookiesPerDay: function () {           
-        return getTotalCount(alki.cookiesList());
-    }    
-};
-
-function getTotalCount(cookiesList) {
-    var cookiesCount = 0;    
-    for (var i = 0; i < cookiesList.length; i++) {                            
-        cookiesCount = cookiesCount + cookiesList[i];
-        }
-        return cookiesCount;
-}
-
-generateSalesProjectionLists(pike, pikeCookieListId);
-generateSalesProjectionLists(seaTac, seaTacCookieListId);
-generateSalesProjectionLists(seattleCenter, seattleCenterCookieListId);
-generateSalesProjectionLists(capitolHill, capitolHillCookieListId);
-generateSalesProjectionLists(alki, alkiCookieListId);
-
-function generateSalesProjectionLists(locationObj, documentId) {    
-    var idList = document.getElementById(documentId);    
-    var listTotalContent = 'Total : '+locationObj.totalCookiesPerDay()+' Cookies';
-    for (var i = 0; i < hours.length; i++) {
-        var listTextContent = '';
-        listTextContent = hours[i] +' : '+ locationObj.cookiesList()[i] + ' Cookies';
-        // 1. Create new element
-        var liEl = document.createElement('li');
-        // 2. Give the element some content
-        liEl.textContent = listTextContent;
-        // 3. Append the new element to its parent in the DOM
-        idList.appendChild(liEl);    
+  SalesProjector.prototype.totalCookiesPerDay = function () {
+    var cookiesCount = 0;      
+    for (var i = 0; i < this.cookiesList().length; i++) {                            
+        cookiesCount = cookiesCount + this.cookiesList()[i];
     }
-    liEl = document.createElement('li');
-    liEl.textContent = listTotalContent;
-    idList.appendChild(liEl);
-}
+    return cookiesCount;
+};
+
+var pikeSales = new SalesProjector('pike', 23, 65, 6.3);
+var seaTac = new SalesProjector('seaTac', 3, 24, 1.2);
+var seattleCenter = new SalesProjector('seattleCenter', 11, 38, 3.7);
+var capitolHill = new SalesProjector('capitolHill', 20, 38, 2.3);
+var alki = new SalesProjector('alki', 2, 16, 4.6);
+
+locations.push(pikeSales, seaTac, seattleCenter, capitolHill, alki);
+
+
+writeHeaderRow(hours);
+var grandTotalContent = writeBodyRow(locations);
+writeTotalRow(locations);
+//alert(rowHeaderContent);
+
+
+function writeHeaderRow(arr) {
+    var headerRow = document.createElement('tr');
+    var headerContent ='<td>' + '</td>';
+    for (var i=0; i < arr.length; i++) {     
+        headerContent = headerContent + '<td>' + arr[i]+ '</td>' 
+        
+    }  
+    headerContent = headerContent +  '<td> Daily Location Total </td>' ;
+    headerRow.innerHTML = headerContent
+    tableHeaderId.appendChild(headerRow);
+  }
+
+  function writeBodyRow(arr) {    
+    var grandTotal = 0;
+    var grandTotalContent = 0;
+    for (var i=0; i < arr.length; i++) {
+        var bodyData = [];        
+          for (var j=0; j < arr[i].cookiesList().length; j++) {
+            if(j===0) {
+                bodyData.push('<td>' + arr[i].locationName + '</td>')
+            }
+            var tempCookieCount = arr[i].cookiesList()[j];           
+            bodyData.push(
+                '<td>' + tempCookieCount + '</td>'
+                )
+          } 
+          var tempTotal = arr[i].totalCookiesPerDay();
+          grandTotal = grandTotal + tempTotal;
+          bodyData.push('<td>' + tempTotal + '</td>' );                 
+          render(bodyData, tableBodyId);
+    }
+    
+    grandTotalContent = '<td>' + grandTotal + '</td>';         
+     return grandTotalContent;    
+  }
+
+  function writeTotalRow(arr) {
+    var totalRow = document.createElement('tr');
+   
+    var totalContent ='<td>' +'Totals'+ '</td>';
+    var first = arr[0].cookiesList()[0];
+    var second = arr[1].cookiesList()[0];
+    var third = arr[2].cookiesList()[0];
+    var fourth = arr[3].cookiesList()[0];
+    var fifth = arr[4].cookiesList()[0];
+    //alert( first + second + third + fourth + fifth);
+
+    for (var i=0; i < hours.length; i++) { 
+        var cookieCount = 0;
+        cookieCount = cookieCount + arr[0].cookiesList()[i] + 
+                                    arr[1].cookiesList()[i] + 
+                                    arr[2].cookiesList()[i] + 
+                                    arr[3].cookiesList()[i] + 
+                                    arr[4].cookiesList()[i]
+        totalContent = totalContent + '<td>' + cookieCount + '</td>' 
+        //alert(cookieCount)
+    }   
+    totalContent = totalContent + grandTotalContent;
+    totalRow.innerHTML = totalContent;
+    tableBodyId.appendChild(totalRow);
+
+  }
+
+  
+  function render(tableRow, elementId) {      
+    var bodyRow = document.createElement('tr');
+    var bodyContent ='';
+    for (var j=0; j < tableRow.length; j++) { 
+        bodyContent = bodyContent +  tableRow[j];        
+    }
+    bodyRow.innerHTML = bodyContent;
+    elementId.appendChild(bodyRow);
+  }
+
 
