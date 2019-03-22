@@ -25,11 +25,63 @@
         </header>
 
         <main>
-            <table>
-                <thead id="headerHours">                  
-                </thead>
-                <tbody id="cookieContents"></tbody>
-              </table>
+                <form id="sales_form">
+            <article>
+                              <article class="container">
+                                <article style="text-align:center">
+                                  <h2>Sales Projection Table</h2><br/> <br/>
+                                </article>                                 
+                                
+                                <article class="row">
+                                  <article class="column">
+                                    <fieldset>
+                                      <label for="lname">Location Name</label>
+                                      <input type="text" id="lname" name="lname" placeholder="Location name..">
+                                    </fieldset>
+                                    <fieldset>
+                                      <label for="mincustomer">Minimum Hourly Customer</label>
+                                      <input type="number" id="mincustomer" name="mincustomer" placeholder="Minimum Hourly Customer">
+                                    </fieldset>
+                                    <fieldset>
+                                      <label for="maxcustomer">Maximum Hourly Customer</label>
+                                      <input type="number" id="maxcustomer" name="maxcustomer"placeholder="Maximum Hourly Customer" >
+                                    </fieldset>
+                                    <fieldset>
+                                      <label for="avgcookiecount">Average Cookies Per Customer</label>
+                                      <input type="number" step="0.01" id="avgcookiecount" name="avgcookiecount" placeholder="Average Hourly Cookies">
+                                    </fieldset>
+                                    <fieldset>
+                                      <input type="submit" value="Submit">     
+                                  </article>
+                                </article>
+                              </article>                
+    </article>
+    </form>
+    <article>
+        <table>
+            <thead>        
+                <th></th>
+                <th>6:00AM</th>
+                <th>7:00AM</th>
+                <th>8:00AM</th>
+                <th>9:00AM</th>
+                <th>10:00AM</th>
+                <th>11:00AM</th>
+                <th>12:00PM</th>
+                <th>1:00PM</th>
+                <th>2:00PM</th>
+                <th>3:00PM</th>
+                <th>4:00PM</th>
+                <th>5:00PM</th>
+                <th>6:00PM</th>
+                <th>7:00PM</th>
+                <th>8:00PM</th> 
+                <th>Daily Location Total</th>          
+            </thead>
+            <tbody id="cookieContents"></tbody>
+            <tfoot id="totalContents"></tfoot>
+          </table>
+    </article>
         </main>
     <script src="js/app.js"></script>
 
