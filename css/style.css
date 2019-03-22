@@ -73,7 +73,7 @@ footer {
 }
 
 /* Style inputs */
-input[type=text], select, textarea {
+input[type=text], input[type=number], select, textarea {
     font-family: 'Sans';
     width: 100%;
     padding: 12px;
@@ -82,6 +82,17 @@ input[type=text], select, textarea {
     margin-bottom: 16px;
     resize: vertical;
   }
+
+  label {
+    font-family: 'Sans';
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+
+  
   
   input[type=submit] {
     background-color: black;
@@ -102,6 +113,7 @@ input[type=text], select, textarea {
     width: 50%;
     margin-top: 6px;
     padding: 20px;
+    color: white
   }
   
   /* Clear floats after the columns */
@@ -132,7 +144,7 @@ thead {
   color: white;
 }
 
-td {
+td,th {
   padding: 20px;
   border: solid 1px black;
   color: white;
