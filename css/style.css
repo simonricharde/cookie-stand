@@ -56,10 +56,6 @@ header nav li {
     margin-top: 45px;
 }
 
-main {
-    width: 960px;
-    margin: 30px auto;
-}
 
 
 footer {
@@ -110,8 +106,9 @@ input[type=text], input[type=number], select, textarea {
   /* Create two columns that float next to eachother */
   .column {
     float: left;
-    width: 50%;
+    width: 20%;
     margin-top: 6px;
+    margin-left: 3%;
     padding: 20px;
     color: white
   }
@@ -123,29 +120,17 @@ input[type=text], input[type=number], select, textarea {
     clear: both;
   }
   
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .column, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
-  
-  main ul li{
-     
-    font-family: 'Open Sans';
-    color: white;
-    font-size: small;
-    margin-bottom: 10px;
-}
+ table {
+  margin-left: 4%;
+ } 
 
 thead {
-  background: #888;
+  background: black;
   color: white;
 }
 
 td,th {
-  padding: 20px;
-  border: solid 1px black;
+  padding: 10px;
+  border: solid 1px #888;
   color: white;
 }
