@@ -52,6 +52,43 @@
                                     <li>Protein 2g              -> 4% </li> 
                                 </ul>
                             </h3>
+                            
+                            <h2>
+                                   Images describe more than words...
+                            </h2>
+                            
+                            <summary>
+                                    <h3>
+                                        <ul>  
+                                                <li>Frosted Cookie</li> 
+                                                <li><img src="img/frosted-cookie.jpg" height="250" width="250"> </li>                                    
+                                        </ul>
+                                    </h3>
+                            </summary>
+                            <summary>
+                                    <h3>
+                                        <ul>   
+                                                <li>Butter Fried Cashew Cookie</li> 
+                                                <li><img src="img/salmonCookie.png" height="250" width="250"> </li>                                    
+                                        </ul>
+                                    </h3>
+                            </summary>
+                            <summary>
+                                    <h3>
+                                        <ul>   
+                                                <li>Creamy Cookies for Kids</li> 
+                                                <li><img src="img/fish.jpg" height="250" width="250"> </li>                                    
+                                        </ul>
+                                    </h3>
+                            </summary>
+                            <summary>
+                                    <h3>
+                                        <ul>   
+                                                <li>Fish cutter for shapes</li> 
+                                                <li><img src="img/cutter.jpeg" height="250" width="250"> </li>                                    
+                                        </ul>
+                                    </h3>
+                            </summary>
                     </article> 
                     <article id="location" class="toggle" style="display:none">
                             <h1>Our Store Locations</h1>
@@ -114,7 +151,28 @@
                                     <li>Saturday: 6AM - 8PM</li>
                                     <li>Sunday: 6AM - 8PM</li>                                    
                                 </ul>
-                            </h3>     
+                            </h3> 
+                            
+                            <h2>Kitchen Visiting Hours:</h2>            
+                            <h3>
+                                <ul>
+                                    <li>M-F : 6PM - 8PM</li>
+                                    <li>Saturday: 5PM - 8PM</li>
+                                    <li>Sunday: All Day</li>                                    
+                                </ul>
+                            </h3>
+                            <h2>Want to have a family Tea time.  Book a table with us</h2>            
+                            <h3>
+                                <ul>
+                                    <li>M-F : 6PM - 8PM</li>
+                                    <li>Saturday: 5PM - 8PM</li>
+                                    <li>Sunday: All Day</li>                                    
+                                </ul>
+
+                                <ul>
+                                        <li><img src="img/family.jpg" > </li>                                                                           
+                                </ul>
+                            </h3> 
                     </article>
                     <article id="specials" class="toggle" style="display:none">
                             <h2>Specials:</h2>
@@ -134,31 +192,81 @@
                                                 <li>Offer starts from December 1st until 31st December</li>                                    
                                             </ul>
                                 </h3> 
+
+                                <h2>New Year Offers:</h2>
+                                <h3>
+                                        <ul>
+                                                <li>Online Order above 100$</li>
+                                                <li>Get 10$ Gift voucher</li>
+                                                <li>Offer starts from December 26th until 2nd January</li>                                    
+                                            </ul>
+                                </h3> 
+
+                                <h2>Merchandise:</h2>
+                                <h3>
+                                        <ul>
+                                                <li>Reach out to our store locations for t-shirts, stickers, mugs, etc,.</li>
+                                        </ul>
+                                    </h3>
+                                    <summary>
+                                    <h3>
+                                        <ul>   
+                                                <li>Fish Printed tShirts available on all sizes</li>
+                                                <li><img src="img/shirt.jpg" > </li>                                    
+                                        </ul>
+                                    </h3>
+                                    </summary>
+                                <summary>
+                                    <h3>
+                                        <ul>   
+                                                <li>Fish stickers</li>
+                                                <li><img src="img/chinook.jpg"  height="324" width="324"> </li>                                    
+                                        </ul>
+                                </h3>
+                            </summary>
+
+                            <summary>
+                                    <h3>
+                                        <ul>   
+                                                <li>Fish Mugs</li>
+                                                <li><img src="img/fishmugs.jpg"  height="324" width="324"> </li>                                    
+                                        </ul>
+                                </h3>
+                            </summary>
                              
                     </article>
+                    <form id="contact_form" method="POST" onsubmit="showfeedback();">
                     <article id="contactus" class="toggle" style="display:none">
                                 <h3>
                                         <article class="container">
                                                 <article style="text-align:center">
                                                   <h2>Contact Us</h2><br/> <br/>
                                                 </article>
-                                                  <p>Leave us a message:</p>
-                                                
+                                                <article>
+                                                  <p style="margin-left: 80px">Leave us a message:</p>
+                                                </article>
                                                 <article class="row">
                                                   <article class="column">
                                                       <label for="fname">Name</label>
-                                                      <input type="text" id="fname" name="fulltname" placeholder="Your name..">
+                                                      <input type="text" id="fname" required name="fulltname"  placeholder="Your name.." >
                                                       <label for="email">Email</label>
-                                                      <input type="text" id="email" name="email" placeholder="Your email..">
+                                                      <input type="email" id="email" required name="email" placeholder="Your email.." >
                                                       <label for="phone">Phone</label>
-                                                      <input type="text" id="phone" name="phone" placeholder="Your phone..">
+                                                      <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required name="phone" placeholder="Format: 123-456-7890" >
+                                                      
                                                       <label for="comment">Comments</label>
                                                       <textarea id="comment" name="comment" placeholder="Write something.." style="height:170px"></textarea>
-                                                      <input type="submit" value="Submit">     
+                                                      <input type="submit" value="Submit"  >     
                                                   </article>
                                                 </article>
                                               </article>
                                 </h3>
+                    </article>
+                    </form>
+                    <article id="feedback" class="toggle" style="display:none">
+                        <h3>
+                                <p>Thanks for contacting us.  We will reach you within 2 business days.  Have a great day !.</p>
+                        </h3>
                     </article>
         </main>
         <script src="js/app.js"></script>
