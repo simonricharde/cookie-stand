@@ -4,6 +4,10 @@ var hours = ['6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:0
 var formId = document.getElementById('sales_form');
 var locations = [];
 locations.push(new SalesProjector('Alki', 8, 15, 2.1));
+locations.push(new SalesProjector('7thPike', 8, 15, 2.1));
+locations.push(new SalesProjector('SeaTac', 8, 15, 2.1));
+locations.push(new SalesProjector('Seattle Center', 8, 15, 2.1));
+locations.push(new SalesProjector('Capitol Hill', 8, 15, 2.1));
 
 var bodyData = '';
 var headerRowId = document.getElementById('headerContents');
@@ -42,60 +46,59 @@ SalesProjector.prototype.calCookiesPerHour = function () {
 
 function formData(event) {
   event.preventDefault();
-
   var locationName = event.target.lname.value;
   var minCustomer = event.target.mincustomer.value;
   var maxCustomer = event.target.maxcustomer.value;
   var avgCookieCount = event.target.avgcookiecount.value;
 
   locations.push(new SalesProjector(locationName, minCustomer, maxCustomer, avgCookieCount));
-  
+
   writeBodyRow();
+  writeFooterRow();
   formId.reset();
 }
 
 function writeBodyRow() {
   var grandTotal = 0;
-
+  clear();
   for (var i = 0; i < locations.length; i++) {
-    if (locations.length === 1 || (locations.length > 1 && i === locations.length - 1)) {
 
-      locations[i].calCookiesPerHour();
-      for (var j = 0; j < hours.length; j++) {
-        if (j === 0) {
-          bodyData = bodyData + '<td>' + locations[i].locationName + '</td>';
-        }
-        var tempCookieCount = locations[i].cookiesPerHour[j];
-        bodyData = bodyData + '<td>' + tempCookieCount + '</td>';
+    locations[i].calCookiesPerHour();
+    for (var j = 0; j < hours.length; j++) {
+      if (j === 0) {
+        bodyData = bodyData + '<td>' + locations[i].locationName + '</td>';
       }
-      var tempTotal = locations[i].totalCookiesPerDay;
-      grandTotal = grandTotal + tempTotal;
-      bodyData = bodyData + '<td>' + tempTotal + '</td>';
-      render();
-      bodyData = '';
+      var tempCookieCount = locations[i].cookiesPerHour[j];
+      bodyData = bodyData + '<td>' + tempCookieCount + '</td>';
     }
-    writeFooterRow();
+    var tempTotal = locations[i].totalCookiesPerDay;
+    grandTotal = grandTotal + tempTotal;
+    bodyData = bodyData + '<td>' + tempTotal + '</td>';
+    render();
+    bodyData = '';
+
   }
+
 }
 
 function writeFooterRow() {
-  if (locations.length > 1) {
-    var grandTotalCookies = 0;
-    var totalContent = '';
-    totalContent = '<td>' + 'Totals' + '</td>';
 
-    for (var i = 0; i < hours.length; i++) {
-      var cookieCount = 0;
-      for (var j = 0; j < locations.length; j++) {
-        cookieCount = cookieCount + locations[j].cookiesPerHour[i];
-      }
-      grandTotalCookies = grandTotalCookies + cookieCount;
-      totalContent = totalContent + '<td>' + cookieCount + '</td>';
+  var grandTotalCookies = 0;
+  var totalContent = '';
+  totalContent = '<td>' + 'Totals' + '</td>';
+
+  for (var i = 0; i < hours.length; i++) {
+    var cookieCount = 0;
+    for (var j = 0; j < locations.length; j++) {
+      cookieCount = cookieCount + locations[j].cookiesPerHour[i];
     }
-    totalContent = totalContent + '<td>' + grandTotalCookies + '</td>';
-    tableRow.innerHTML = totalContent;
-    totalRowId.appendChild(tableRow);
+    grandTotalCookies = grandTotalCookies + cookieCount;
+    totalContent = totalContent + '<td>' + cookieCount + '</td>';
   }
+  totalContent = totalContent + '<td>' + grandTotalCookies + '</td>';
+  tableRow.innerHTML = totalContent;
+  totalRowId.appendChild(tableRow);
+
 }
 
 function writeHeaderRow() {
@@ -110,12 +113,20 @@ function writeHeaderRow() {
 }
 
 function render() {
+
   var bodyRow = document.createElement('tr');
   bodyRow.innerHTML = bodyData;
   tableBodyId.appendChild(bodyRow);
 
 }
 
+function clear() {
+  tableBodyId.innerHTML = "";
+}
+
+
+
 writeHeaderRow();
 writeBodyRow();
+writeFooterRow();
 formId.addEventListener('submit', formData);
