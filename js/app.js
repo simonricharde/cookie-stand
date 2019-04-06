@@ -1,56 +1,56 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 function showAboutUs() {
-  document.getElementById("specials").style.display="none";
-  document.getElementById("hours").style.display="none";
-  document.getElementById("location").style.display="none";
-  document.getElementById('contactus').style.display = "none";
-  document.getElementById("feedback").style.display="none";
-  document.getElementById('aboutus').style.display = "block";
+  document.getElementById('specials').style.display = 'none';
+  document.getElementById('hours').style.display = 'none';
+  document.getElementById('location').style.display = 'none';
+  document.getElementById('contactus').style.display = 'none';
+  document.getElementById('feedback').style.display = 'none';
+  document.getElementById('aboutus').style.display = 'block';
 }
 
 function showLocations() {
-  document.getElementById("specials").style.display="none";
-  document.getElementById("hours").style.display="none";
-  document.getElementById("aboutus").style.display="none";
-  document.getElementById('contactus').style.display = "none";
-  document.getElementById("feedback").style.display="none";
-      document.getElementById('location').style.display = "block";
+  document.getElementById('specials').style.display = 'none';
+  document.getElementById('hours').style.display = 'none';
+  document.getElementById('aboutus').style.display = 'none';
+  document.getElementById('contactus').style.display = 'none';
+  document.getElementById('feedback').style.display = 'none';
+  document.getElementById('location').style.display = 'block';
 }
 
 function showHours() {
-  document.getElementById("specials").style.display="none";
-  document.getElementById("location").style.display="none";
-  document.getElementById('aboutus').style.display = "none";
-  document.getElementById('contactus').style.display = "none";
-  document.getElementById("feedback").style.display="none";
-  document.getElementById('hours').style.display = "block";
+  document.getElementById('specials').style.display = 'none';
+  document.getElementById('location').style.display = 'none';
+  document.getElementById('aboutus').style.display = 'none';
+  document.getElementById('contactus').style.display = 'none';
+  document.getElementById('feedback').style.display = 'none';
+  document.getElementById('hours').style.display = 'block';
 }
 
 function showSpecials() {
-  document.getElementById("hours").style.display="none";
-  document.getElementById("location").style.display="none";
-  document.getElementById('aboutus').style.display = "none";
-  document.getElementById('contactus').style.display = "none";
-  document.getElementById("feedback").style.display="none";
-  document.getElementById('specials').style.display = "block";
+  document.getElementById('hours').style.display = 'none';
+  document.getElementById('location').style.display = 'none';
+  document.getElementById('aboutus').style.display = 'none';
+  document.getElementById('contactus').style.display = 'none';
+  document.getElementById('feedback').style.display = 'none';
+  document.getElementById('specials').style.display = 'block';
 }
 
-function showContactUs() {     
-  document.getElementById("hours").style.display="none";
-  document.getElementById("location").style.display="none";
-  document.getElementById('aboutus').style.display = "none";
-  document.getElementById('specials').style.display = "none";
-  document.getElementById("feedback").style.display="none";
-  document.getElementById('contactus').style.display = "block";
+function showContactUs() {
+  document.getElementById('hours').style.display = 'none';
+  document.getElementById('location').style.display = 'none';
+  document.getElementById('aboutus').style.display = 'none';
+  document.getElementById('specials').style.display = 'none';
+  document.getElementById('feedback').style.display = 'none';
+  document.getElementById('contactus').style.display = 'block';
 }
 
-function showfeedback()
-{
+function showfeedback() {
   event.preventDefault();
   var contactFormId = document.getElementById('contact_form');
   contactFormId.reset();
-  document.getElementById('contactus').style.display = "block";
-  document.getElementById("feedback").style.display="block";
+  document.getElementById('contactus').style.display = 'block';
+  document.getElementById('feedback').style.display = 'block';
 }
 var hours = ['6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM'];
 var formId = document.getElementById('sales_form');
